@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+<h1>{% block title %}Welcome to your movie library!{% endblock %}</h1>
+<h2>Trending movies:</h2>
+<ol>
+    {% for movie in movies %} 
+        <!--make each element a link that take the user to that movie's page-->
+        <li>
+            <a href="{{ url_for('movie_page', movie_id=movie.imdb_id) }}">{{ movie.title }}</a> 
+            <form method="POST" action="{{ url_for('add_movie', movie_id=movie.imdb_id)}}">
+                <button type="submit">add</button>
+            </form>
+        </li>
+    {% endfor %}
+
+</ol>
+<p> <!--for debugging purposes-->
+    {{ text }}
+</p>
+{% endblock %}

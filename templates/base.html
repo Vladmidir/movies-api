@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} - Movie API</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="#">Add</a>
+        <a href="{{ url_for('movies_list') }}">My list</a>
+        <!--Seach for a movie in the navbar-->
+        <form action=" {{ url_for('list_by_name') }} " method="POST">
+            <input type="text" name="movie_name" required>
+            <input type="submit" value="Search">
+        </form>
+    </nav>
+    <div>
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

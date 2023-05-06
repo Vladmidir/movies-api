@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+    <h1>{% block title %} Results for: "{{ movie_name }}" {% endblock %}</h1>
+    <div>
+        <ul>
+            {% for movie in movies %} 
+                <li><a href="{{ url_for('movie_page', movie_id=movie.imdb_id) }}">{{ movie.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
