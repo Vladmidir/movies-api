@@ -64,12 +64,12 @@ Improved my server-side form processing skills.
 
 ### Continued development
 There are a lot of things that could be added to this project. To name a few:
-- Adding CSS styles and a responsive CSS framework (Bootstrap).
-- List movies in different formats (with, without images, title only, title & description, title & rating)
+- Add CSS styles and a responsive CSS framework (Bootstrap).
+- List movies in different formats (with/without images, title only, title & description, title & rating)
 - Adding client-side form validation to prevent invalid input.
-- Ask for confirmation when deleting a movie
+- Ask for confirmation when deleting a movie.
 
 The biggest thing that is logical to add to this project is a database. A database would allow the users to:
 - Register an account.
 - Store their movies list in the database.
-- View other user's personalized movie lists (if those lists are declared as 'public')
+- View other users' personalized movie lists (if those lists are declared as 'public').
