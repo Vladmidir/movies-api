@@ -18,7 +18,8 @@ This web application allows users to:
 * View the top 50 most popular movies on the homepage.
 * Search for a movie.
 * Click on a movie to view its details.
-* Add/remove a movie to their list. Edit the description and add a personal rating to a movie in the list.
+* Add/remove a movie to their list. 
+* Edit the description and add a personal rating to a movie in the list.
 * View their list of movies.
 * Sort the movies in the list by rating/personal rating/date released
 
