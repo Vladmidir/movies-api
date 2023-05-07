@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+    <h1>{% block title %}Edit {{ movie.title }}: {% endblock %}</h1>
+    <img style="max-width: 200px;" src="{{ movie.banner }}" alt="movie banner">
+    <form method="POST" action=" {{ url_for('edit_movie', movie_id = movie.id) }} ">
+        <div>
+            <!--Put the label at the top-->
+            <label style="display: block;" for="description"><h3>Description:</h3></label>
+            <textarea style="display: block; padding: 10px;" name="description" cols="50" rows="10">{{ movie.description }}</textarea>
+        </div>
+        <div>
+            <label for="user_rating">My rating: </label>
+            <input type="number" name="user_rating" min="0" max="100" value="{{ movie.user_rating }}">
+        </div>
+        <div>
+            <button type="submit">Apply</button>
+        </div>
+    </form>
+{% endblock %}

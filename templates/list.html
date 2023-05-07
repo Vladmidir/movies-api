@@ -2,16 +2,37 @@
 
 {% block content %} 
     <h1>{% block title %} My List {% endblock %}</h1>
+    <form method="POST" action="">
+        <div>
+            <label for="sort_by">Sort by</label>
+            <select name="sort_by">
+                <option value="rating">Rating</option>
+                <option value="user_rating">My Rating</option>
+                <option value="release_date">Date released</option>
+            </select>
+        </div>
+        <div>
+            <label for="order">Order</label>
+            <select name="order">
+                <option value="1">Ascending</option>
+                <option value="">Descending</option>
+            </select>
+        </div>
+        <button type="submit">Sort</button>
+    </form>
     <div>
         <ol>
+            <!--Thes movies are Movie objects, not json dics!-->
             {% for movie in movies %} 
                 <li>
-                    <h2> {{ movie.title }} </h1>
+                    <h2> <a href="{{ url_for('movie_page', movie_id=movie.id) }}">{{ movie.title }} </a></h1>
                     <div style="max-width: 700px;">
                         <img style="max-height: 100px;" src="{{ movie.banner }}" alt="movie banner">
                         <h3>Description</h3>
                         <p>{{ movie.description }}</p>
                         <h4>Rating: {{ movie.rating }}</h4>
+                        <h4>My Rating: {{ movie.user_rating }}</h4>
+                        <h4>Date released: {{ movie.release_date }}</h4>
                     </div>
                 </li>
             {% endfor %}

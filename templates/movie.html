@@ -1,12 +1,40 @@
 {% extends 'base.html' %} 
 {% block content %}
     <h1>{% block title %} {{ movie.title }} {% endblock %}</h1>
+    <!--determine whether the movie is in the list, show the according button-->
 
-    <div>
-        <img style="max-width: 400px;" src="{{ movie.banner }}" alt="movie banner">
-        <h3>Description</h3>
-        <p>{{ movie.description }}</p>
-        <h4>Rating: {{ movie.rating }}</h4>
-    </div>
+    {% if in_list %}
+        <!--we are working with Movie class object-->
+        <div class="saved-movie-header">
+            <h3 style="background-color: lightgreen; width: 370px;">You have saved this movie to your movies list!</h3>
+            <form style="display: inline;" method="POST" action="{{ url_for('delete_movie', movie_id=movie.id) }}">
+                <button type="submit">delete</button>
+            </form>
+            <form style="display: inline;" method="GET" action=" {{ url_for('edit_movie', movie_id=movie.id) }}">
+                <!--add on hover description to my buttons-->
+                <button type="submit">edit</button>
+            </form>
+        </div>
+        
+        <div class="saved-movie-body">
+            <img style="max-width: 400px;" src="{{ movie.banner }}" alt="movie banner">
+            <h4>Description</h4> 
+            <p>{{ movie.description }}</p>
+            <h4>Rating: {{ movie.rating }}</h4>
+            <h4>Your rating: {{ movie.user_rating }}</h4>
+        </div>
+    {% else %}
+        <!--We are working with API json object-->
+        <form method="POST" action="{{ url_for('add_movie', movie_id=movie.imdb_id) }}">
+            <button type="submit">add</button>
+        </form>
+        <div>
+            <img style="max-width: 400px;" src="{{ movie.banner }}" alt="movie banner">
+            <h4>Description</h4> 
+            <p>{{ movie.description }}</p>
+            <h4>Rating: {{ movie.rating }}</h4>
+        </div>
+    {% endif %}
+    <!--Add another form that allows to edit the movie description & rating-->
 {% endblock %}
 

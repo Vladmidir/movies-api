@@ -9,9 +9,6 @@
         <!--make each element a link that take the user to that movie's page-->
         <li>
             <a href="{{ url_for('movie_page', movie_id=movie.imdb_id) }}">{{ movie.title }}</a> 
-            <form method="POST" action="{{ url_for('add_movie', movie_id=movie.imdb_id)}}">
-                <button type="submit">add</button>
-            </form>
         </li>
     {% endfor %}
 
